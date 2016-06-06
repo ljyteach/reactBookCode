@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../script/react.js"></script>
+	<script src="../script/JSXTransformer.js"></script>
+</head>
+<body>
+	<div id="hello"></div>
+	<script type="text/jsx">
+		var Hello = React.createClass({
+			getInitialState:function(){
+				return {
+					myStyle:{
+						backgroundColor:"red",
+						width:"100px",
+						height:"100px"
+					}
+				}
+			},
+			changeColor:function(){
+				//setState调用，render就会被调用。
+				this.setState({
+					myStyle:{
+						backgroundColor:"blue",
+						width:"200px",
+						height:"200px"
+					}
+				})
+			},	
+			render:function(){
+				return (
+					<div>
+						<h1 onClick={this.changeColor}>点我变色</h1>
+						<div style={this.state.myStyle}></div>
+					</div>
+				)
+			}
+		})
+		React.render(<Hello />,document.getElementById("hello"));
+	</script>
+</body>
+</html>

@@ -10,9 +10,17 @@
 	<div id="hello"></div>
 	<script type="text/jsx">
 		var Hello = React.createClass({
+			getInitialState:function(){
+				return {
+					myStyle:{
+						color:"red",
+						fontSize:"12px"
+					}
+				}
+			},
 			render:function(){
 				return (
-					<h1>这是一个测试组件</h1>
+					<h1 style={this.state.myStyle}>这是一个测试组件</h1>
 				)
 			}
 		})

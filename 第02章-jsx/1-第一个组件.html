@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一个组件</title>
+	<script src="../script/react.js"></script>
+	<script src="../script/JSXTransformer.js"></script>
+</head>
+<body>
+	<div id="hello"></div>
+	<script type="text/jsx">
+		var Hello = React.createClass({
+			render:function(){
+				return (
+					<h1>这是一个测试组件</h1>
+				)
+			}
+		})
+		React.render(<Hello />,document.getElementById("hello"));
+	</script>
+</body>
+</html>

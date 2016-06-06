@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../script/react.js"></script>
+	<script src="../script/JSXTransformer.js"></script>
+</head>
+<body>
+	<div id="hello"></div>
+	<script type="text/jsx">
+		var Hello = React.createClass({
+			// 实例化
+			getDefaultProps:function(){  //只调用一次
+				console.log("getDefaultProps");
+			},
+			getInitialState:function(){ //只调用一次
+				//在这里可以调用this.props
+				console.log("getInitialState");
+				return {
+					color:"red"
+				}
+			},
+			componentWillMount:function(){
+				//首次渲染前调用，可以修改state
+				console.log("componentWillMount");
+			},
+			componentDidMount:function(){
+				//this.getDOMNode可以获取到真实的DOM节点
+				console.log(this.getDOMNode());
+			},
+			//存在期
+			componentWillReceiveProps:function(){
+				console.log("componentWillReceiveProps");
+			},
+			sholdComponentUpdate:function(){
+				console.log("sholdComponentUpdate");
+			},
+			componentWillUpdate:function(){
+				console.log("componentWillUpdate");
+			},
+			componentDidUpdate:function(){
+				console.log("componentDidUpdate");
+			},
+			//销毁期
+			componentWillUnmount:function(){
+				console.log("componentWillUnmount");
+			},
+			render:function(){
+				//render返回的结果是一个虚拟的DOM，react会把它和真实的DOM作比较，并决定是否更新DOM
+				return (
+					<h1>这是一个测试组件{this.props.haha}</h1>
+				)
+			}
+		})
+		React.render(<Hello haha="test" />,document.getElementById("hello"));
+	</script>
+</body>
+</html>

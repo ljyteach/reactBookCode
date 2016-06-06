@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../script/react.js"></script>
+	<script src="../script/JSXTransformer.js"></script>
+</head>
+<body>
+	<div id="hello"></div>
+	<script type="text/jsx">
+
+		var Father = React.createClass({
+			updateNum:function(){
+				this.props.pr = 100;
+				console.log(this.props.pr)
+			},
+			render:function(){
+				return (
+					<div>
+						<h1 onClick={this.updateNum}>复合组件</h1>
+						<Son num={this.props.pr}/>
+					</div>
+				)
+			}
+		})
+
+		var Son = React.createClass({
+			getDefaultProps:function(){
+				return {
+					num:999
+				}
+			},
+			componentWillReceiveProps:function(){
+				console.log("componentWillReceiveProps")
+			},
+			render:function(){
+				return (
+					<h2>这是数字是：{this.props.num}</h2>
+				)
+			}
+		})
+		React.render(<Father />,document.getElementById("hello"));
+	</script>
+</body>
+</html>

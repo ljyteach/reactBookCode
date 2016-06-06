@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复合组件</title>
+	<script src="../script/react.js"></script>
+	<script src="../script/JSXTransformer.js"></script>
+</head>
+<body>
+	<div id="hello"></div>
+	<script type="text/jsx">
+		var ComponentA = React.createClass({
+			render:function(){
+				return (
+					<div>
+						<h1>复合组件</h1>	
+						<ComponentB />
+					</div>
+
+				)
+			}
+		})
+
+		var ComponentB = React.createClass({
+			render:function(){
+				return (
+					<h2>第二个组件</h2>
+				)
+			}
+		})
+
+		React.render(<ComponentA />,document.getElementById("hello"));
+	</script>
+</body>
+</html>

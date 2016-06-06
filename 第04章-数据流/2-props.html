@@ -9,14 +9,20 @@
 <body>
 	<div id="hello"></div>
 	<script type="text/jsx">
+		//props与state的区别，state只存在于属性的内部
 		var Hello = React.createClass({
 			render:function(){
+				// this.props.myprop = 100;可以这样修改属性，但不要这样做，组件不可以修改自己的属性
+				//请将this.props当做只读属性。
 				return (
-					<h1>这是一个测试组件</h1>
+					<div>
+
+						<h1>属性：{this.props.myprop}</h1>
+					</div>
 				)
 			}
 		})
-		React.render(<Hello />,document.getElementById("hello"));
+		React.render(<Hello myprop="hi" />,document.getElementById("hello"));
 	</script>
 </body>
 </html>

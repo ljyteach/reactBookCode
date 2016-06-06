@@ -11,11 +11,13 @@
 	<script type="text/jsx">
 		var Hello = React.createClass({
 			render:function(){
+				var text = "测试文字";
 				return (
-					<h1>这是一个测试组件</h1>
+					<h1>{text}</h1>
 				)
 			}
 		})
+
 		React.render(<Hello />,document.getElementById("hello"));
 	</script>
 </body>

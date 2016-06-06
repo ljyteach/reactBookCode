@@ -10,9 +10,23 @@
 	<div id="hello"></div>
 	<script type="text/jsx">
 		var Hello = React.createClass({
+			getInitialState:function(){
+				return {
+					text:"默认值"
+				}
+			},
+			changeHandle:function(){
+				var input = this.refs.cont.getDOMNode();
+				this.setState({
+					text:input.value
+				})
+			},
 			render:function(){
 				return (
-					<h1>这是一个测试组件</h1>
+					<div>
+						<input ref="cont" type="text" onChange={this.changeHandle} />
+						<p>输入的内容是：{this.state.text}</p>
+					</div>
 				)
 			}
 		})
